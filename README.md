@@ -1,3 +1,3 @@
-# AfterLife
-A post-apocalyptic first-person shooter. Play as one of the last survivors of nuclear war as a cryogenics malfunction forces you out into the carcass of the Earth.
-Survive and escape a rapidlly-deteriorating bunker complex and make it to the surface to begin life anew among the wastes.
+# Afterlife
+A post-apocalyptic first-person shooter. Escape a bunker complex after a cryogenics malfunction rudely forces you into the world of the half-living.
+Find other survivors, if there are any, and beware the horrors that lurk within the fallout...

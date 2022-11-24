@@ -171,9 +171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: 0}
-  m_XDamping: 0.5
-  m_YDamping: 0.5
-  m_ZDamping: 0.5
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -1147,7 +1147,7 @@ GameObject:
   - component: {fileID: 980202907}
   - component: {fileID: 980202906}
   - component: {fileID: 980202905}
-  - component: {fileID: 980202904}
+  - component: {fileID: 980202909}
   - component: {fileID: 980202908}
   m_Layer: 0
   m_Name: Player
@@ -1156,24 +1156,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &980202904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980202903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b065c632f56aaa4aa705b0e22449aa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _context:
-    MovementSpeed: 5.4
-    GroundControl: 1
-    JumpHeight: 2
-    AirControl: 0.05
-  _input: {fileID: 980202905}
 --- !u!114 &980202905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,6 +1233,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 980202906}
+--- !u!114 &980202909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980202903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b065c632f56aaa4aa705b0e22449aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _context:
+    MovementSpeed: 2
+    GroundControl: 1
+    JumpHeight: 1
+    CoyoteTime: 0.2
+    AirControl: 0.05
+  _input: {fileID: 0}
 --- !u!1 &1238677848
 GameObject:
   m_ObjectHideFlags: 0

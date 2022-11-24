@@ -11,7 +11,7 @@ public class PlayerContext : BehaviorContext
 	/// Player move speed in meters per second.
 	/// </summary>
 	[Header("Ground Movement"), Min(0f), Tooltip("Player move speed in meters per second.")]
-	public float MovementSpeed = 4.0f;
+	public float MovementSpeed = 2.0f;
 
 	/// <summary>
 	/// How effectively ground movement responds to input.
@@ -23,7 +23,13 @@ public class PlayerContext : BehaviorContext
 	/// Player jump height in meters.
 	/// </summary>
 	[Header("Vertical Movement"), Min(0f), Tooltip("Player jump height in meters.")]
-	public float JumpHeight = 2.0f;
+	public float JumpHeight = 1.0f;
+
+	/// <summary>
+	/// Player coyote time in seconds.
+	/// </summary>
+	[Min(0f), Tooltip("Player coyote time in seconds.")]
+	public float CoyoteTime = 0.2f;
 
 	/// <summary>
 	/// How effectively air movement responds to input.

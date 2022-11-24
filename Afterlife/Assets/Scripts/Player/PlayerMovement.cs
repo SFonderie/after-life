@@ -25,7 +25,12 @@ public class PlayerMovement : PlayerDelegate
 	private Vector3 _update = Vector3.zero;
 
 	/// <summary>
-	/// Current player vertical speed in 3D.
+	/// Current player horizontal velocity in 3D.
+	/// </summary>
+	private Vector3 _current = Vector3.zero;
+
+	/// <summary>
+	/// Current player vertical velocity in 3D.
 	/// </summary>
 	private Vector3 _vertical = Vector3.zero;
 
@@ -88,10 +93,18 @@ public class PlayerMovement : PlayerDelegate
 			// Update player velocities.
 			if (context.Grounded)
 			{
-				// Handle jump updates.
+				_current = SMath.RecursiveLerp(_current, _update, 0.01f, 2 * Time.deltaTime * context.GroundControl);
+
+				// Constantly reset the timer.
+				_coyote.Set(context.CoyoteTime);
+
+				// Reset basic jump info.
 				_vertical = Vector3.zero;
 				CheckJumpHeight(context);
-				_coyote.Set(0.2f);
+			}
+			else
+			{
+				_current = SMath.RecursiveLerp(_current, _update, 0.01f, 2 * Time.deltaTime * context.AirControl);
 			}
 
 			// Jump if the player wants to jump and can.
@@ -106,7 +119,7 @@ public class PlayerMovement : PlayerDelegate
 
 			// Add gravity and mix the two velocities.
 			_vertical += Physics.gravity * Time.deltaTime;
-			context.Velocity = _update + _vertical;
+			context.Velocity = _current + _vertical;
 
 			// Finally, we can move the player for real.
 			_controller.Move(context.Velocity * Time.deltaTime);

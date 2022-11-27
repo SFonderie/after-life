@@ -1,8 +1,20 @@
+using UnityEngine;
 /// <summary>
 /// Behavior Contexts are container objects used to share game data.
 /// </summary>
 public abstract class BehaviorContext
 {
+	/// <summary>
+	/// Maximum damage the entity can take before dying.
+	/// </summary>
+	[Header("General"), Min(1f), Tooltip("Maximum damage the entity can take before dying.")]
+	public float Health = 100f;
+
+	/// <summary>
+	/// Total damage the entity has suffered.
+	/// </summary>
+	public float Damage { get; set; }
+
 	/// <summary>
 	/// Invoked once per Unity Awake.
 	/// </summary>

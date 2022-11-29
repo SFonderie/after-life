@@ -11,16 +11,33 @@ public class SceneTrigger : MonoBehaviour
 	[SerializeField, Tooltip("List of scripts listening for the Scene Trigger.")]
 	private MonoBehaviour[] SceneListeners = null;
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider other)
+	{
+		OnTriggerSwitch(other, true);
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		OnTriggerSwitch(other, false);
+	}
+
+	private void OnTriggerSwitch(Collider other, bool enter)
 	{
 		// If the collision is with a player...
-		if (collision.gameObject.tag.Equals("Player"))
+		if (other.gameObject.tag.Equals("Player"))
 		{
 			foreach (MonoBehaviour candidate in SceneListeners)
 			{
 				if (candidate is ISceneListener listener)
 				{
-					listener.OnSceneTrigger(collision);
+					if (enter)
+					{
+						listener.OnPlayerEnter(other);
+					}
+					else
+					{
+						listener.OnPlayerExit(other);
+					}
 				}
 			}
 		}

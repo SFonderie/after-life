@@ -16,4 +16,9 @@ public static class SMath
 	{
 		return Vector3.LerpUnclamped(target, current, Mathf.Pow(epsilon, delta));
 	}
+
+	public static Quaternion RecursiveLerp(Quaternion current, Quaternion target, float epsilon, float delta)
+	{
+		return Quaternion.LerpUnclamped(target, current, Mathf.Pow(epsilon, delta));
+	}
 }

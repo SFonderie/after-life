@@ -54,6 +54,11 @@ public class PlayerMovement : PlayerDelegate
 	/// </summary>
 	private bool _blockJumps = false;
 
+	/// <summary>
+	/// Flag that toggles input.
+	/// </summary>
+	private bool _ignoreInput = false;
+
 	void Awake()
 	{
 		DelegateOrder = MOVEMENT_ORDER;
@@ -69,20 +74,22 @@ public class PlayerMovement : PlayerDelegate
 
 	public override void HandleInput(InputAction.CallbackContext context)
 	{
-		if (context.action.name.Equals("Movement"))
+		if (context.action.name.Equals("Movement") && !_ignoreInput)
 		{
 			_intent = context.ReadValue<Vector2>();
 		}
 
 		if (context.action.name.Equals("Jump"))
 		{
-			_doJump = context.performed && !_blockJumps;
+			_doJump = context.performed && !_blockJumps && !_ignoreInput;
 			_blockJumps = _blockJumps && !(_blockJumps && context.canceled);
 		}
 	}
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
+		_ignoreInput = context.Inspecting;
+
 		if (_controller)
 		{
 			// Actually figure out where the player wants to go.

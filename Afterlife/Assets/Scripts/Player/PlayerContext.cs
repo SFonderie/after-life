@@ -38,6 +38,11 @@ public class PlayerContext : BehaviorContext
 	public float AirControl = 0.05f;
 
 	/// <summary>
+	/// Pointer to the player's inspection transform.
+	/// </summary>
+	public Transform InspectTransform { get; set; }
+
+	/// <summary>
 	/// Per-frame player movement intent.
 	/// </summary>
 	public Vector3 Intent { get; set; }
@@ -51,4 +56,9 @@ public class PlayerContext : BehaviorContext
 	/// Per-frame player grounded state.
 	/// </summary>
 	public bool Grounded { get; set; }
+
+	/// <summary>
+	/// Per-frame inspection state.
+	/// </summary>
+	public bool Inspecting { get; set; }
 }

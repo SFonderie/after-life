@@ -1,4 +1,5 @@
 using UnityEngine;
+
 /// <summary>
 /// Behavior Contexts are container objects used to share game data.
 /// </summary>

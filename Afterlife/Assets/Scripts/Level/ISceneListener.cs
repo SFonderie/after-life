@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +8,12 @@ public interface ISceneListener
 	/// <summary>
 	/// Invoked by Scene Triggers once each time a player enters them.
 	/// </summary>
-	/// <param name="collision">Information about the player collision.</param>
-	public void OnSceneTrigger(Collision collision);
+	/// <param name="player">Player collider component.</param>
+	public void OnPlayerEnter(Collider player);
+
+	/// <summary>
+	/// Invoked by Scene Triggers once each time a plauer exits them.
+	/// </summary>
+	/// <param name="player">Player collider component.</param>
+	public void OnPlayerExit(Collider player);
 }

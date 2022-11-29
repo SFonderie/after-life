@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Handles animating the drone enemy.
+/// </summary>
 public class DroneAnimation : EnemyDelegate
 {
 	/// <summary>
@@ -70,10 +73,10 @@ public class DroneAnimation : EnemyDelegate
 				float angle = slice * i + InnerRotation;
 				float radius = InnerRadius;
 
-				float z = Mathf.Cos(angle) * radius * xFactor;
+				float x = Mathf.Cos(angle) * radius * xFactor;
 				float y = Mathf.Sin(angle) * radius * yFactor;
 
-				cube.localPosition = new Vector3(0, y, z);
+				cube.localPosition = new Vector3(x, y, 0);
 			}
 		}
 

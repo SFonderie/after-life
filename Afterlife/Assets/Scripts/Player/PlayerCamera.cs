@@ -41,6 +41,11 @@ public class PlayerCamera : PlayerDelegate
 	/// </summary>
 	private bool _normalized = false;
 
+	/// <summary>
+	/// Blocks inputs.
+	/// </summary>
+	private bool _ignoreInput = false;
+
 	void Awake()
 	{
 		DelegateOrder = CAMERA_ORDER; // Update the camera first.
@@ -69,7 +74,7 @@ public class PlayerCamera : PlayerDelegate
 
 	public override void HandleInput(InputAction.CallbackContext context)
 	{
-		if (context.action.name.Equals("Camera"))
+		if (context.action.name.Equals("Camera") && !_ignoreInput)
 		{
 			_normalized = !(context.action.activeControl.device is Pointer);
 			_input = context.ReadValue<Vector2>();
@@ -78,6 +83,8 @@ public class PlayerCamera : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
+		_ignoreInput = context.Inspecting;
+
 		if (_settings && _player && _camera)
 		{
 			// Make the scale vector using our settings object.

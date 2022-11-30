@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.LowLevel;
 
 /// <summary>
 /// Item that can be picked up and inspected by the player.
 /// </summary>
-public class PickupItem : MonoBehaviour, IPlayerListener
+public class Pickup : MonoBehaviour, IPlayerListener
 {
 	/// <summary>
 	/// Where the item rests when not being held.
@@ -23,11 +22,6 @@ public class PickupItem : MonoBehaviour, IPlayerListener
 	/// </summary>
 	private Transform Target = null;
 
-	/// <summary>
-	/// Is the player inspecting right now?
-	/// </summary>
-	private bool Inspecting = false;
-
 	void Start()
 	{
 		if (!ItemTransform)
@@ -39,6 +33,8 @@ public class PickupItem : MonoBehaviour, IPlayerListener
 		{
 			DefaultTransform = transform;
 		}
+
+		Target = DefaultTransform;
 	}
 
 	public void OnHover(PlayerContext context)
@@ -46,12 +42,15 @@ public class PickupItem : MonoBehaviour, IPlayerListener
 
 	}
 
-	public void OnInteraction(PlayerContext context)
+	public void OnStartInteract(PlayerContext context)
 	{
-		Inspecting = !context.Inspecting;
-		context.Inspecting = Inspecting;
+		Target = context.PickupTransform;
+		context.Interacting = true;
+	}
 
-		Target = Inspecting ? context.InspectTransform : DefaultTransform;
+	public void OnStopInteract(PlayerContext context)
+	{
+		Target = DefaultTransform;
 	}
 
 	void Update()
@@ -61,5 +60,10 @@ public class PickupItem : MonoBehaviour, IPlayerListener
 			ItemTransform.position = SMath.RecursiveLerp(ItemTransform.position, Target.position, 0.1f, 4 * Time.deltaTime);
 			ItemTransform.rotation = SMath.RecursiveLerp(ItemTransform.rotation, Target.rotation, 0.1f, 8 * Time.deltaTime);
 		}
+	}
+
+	public string GetActionName()
+	{
+		return "Read";
 	}
 }

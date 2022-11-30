@@ -83,4 +83,9 @@ public class SlideDoor : MonoBehaviour, ISceneListener
 	{
 		Status = false;
 	}
+
+	public void OnLevelSequence()
+	{
+
+	}
 }

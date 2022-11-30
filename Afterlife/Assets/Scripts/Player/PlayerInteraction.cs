@@ -95,7 +95,7 @@ public class PlayerInteraction : PlayerDelegate
 			return;
 		}
 
-		context.InspectTransform = PlayerInspect;
+		context.PickupTransform = PlayerInspect;
 
 		if (Listener != null)
 		{
@@ -103,7 +103,16 @@ public class PlayerInteraction : PlayerDelegate
 
 			if (DoInteract && !BlockInteract)
 			{
-				Listener.OnInteraction(context);
+				if (context.Interacting)
+				{
+					Listener.OnStopInteract(context);
+					context.Interacting = false;
+					context.Inspecting = false;
+				}
+				else
+				{
+					Listener.OnStartInteract(context);
+				}
 
 				DoInteract = false;
 				BlockInteract = true;

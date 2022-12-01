@@ -36,6 +36,12 @@ public class SlideDoor : MonoBehaviour, ISceneListener
 	private bool OpenDefault = false;
 
 	/// <summary>
+	/// Locks the door by default. You can unlock with a level sequence.
+	/// </summary>
+	[SerializeField, Tooltip("Locks the door by default. You can unlock with a level sequence.")]
+	private bool IsLocked = false;
+
+	/// <summary>
 	/// Current interpolation factor.
 	/// </summary>
 	float Interpolation = 0;
@@ -60,7 +66,7 @@ public class SlideDoor : MonoBehaviour, ISceneListener
 
 	void Update()
 	{
-		if (OpenLocation && CloseLocation)
+		if (OpenLocation && CloseLocation && !IsLocked)
 		{
 			float increment = Time.deltaTime / DoorTime;
 			Interpolation += Status ? increment : -increment;
@@ -86,6 +92,6 @@ public class SlideDoor : MonoBehaviour, ISceneListener
 
 	public void OnLevelSequence()
 	{
-
+		IsLocked = false;
 	}
 }

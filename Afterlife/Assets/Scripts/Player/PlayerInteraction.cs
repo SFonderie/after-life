@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// Implements player look-based interaction.
@@ -9,7 +11,7 @@ public class PlayerInteraction : PlayerDelegate
 	/// <summary>
 	/// Player camera transform reference.
 	/// </summary>
-	[SerializeField, Tooltip("Player camera transform reference.")]
+	[Header("Components"), SerializeField, Tooltip("Player camera transform reference.")]
 	private Transform PlayerLook = null;
 
 	/// <summary>
@@ -19,16 +21,28 @@ public class PlayerInteraction : PlayerDelegate
 	private Transform PlayerInspect = null;
 
 	/// <summary>
+	/// Interaction tooltip and crosshair panel.
+	/// </summary>
+	[SerializeField, Tooltip("Interaction tooltip and crosshair panel.")]
+	private GameObject InteractPanel = null;
+
+	/// <summary>
+	/// Interaction tooltip text.
+	/// </summary>
+	[SerializeField, Tooltip("Interaction tooltip text.")]
+	private TMP_Text InteractText = null;
+
+	/// <summary>
 	/// Interaction sphere cast length.
 	/// </summary>
-	[Min(0), SerializeField, Tooltip("Interaction sphere cast length.")]
-	private float InteractRange = 8f;
+	[Header("Variables"), Min(0), SerializeField, Tooltip("Interaction sphere cast length.")]
+	private float InteractRange = 3f;
 
 	/// <summary>
 	/// Interaction sphere cast radius.
 	/// </summary>
 	[Min(0), SerializeField, Tooltip("Interaction sphere cast radius.")]
-	private float InteractRadius = 0.5f;
+	private float InteractRadius = 0.25f;
 
 	/// <summary>
 	/// Current tracked player listener.
@@ -117,6 +131,16 @@ public class PlayerInteraction : PlayerDelegate
 				DoInteract = false;
 				BlockInteract = true;
 			}
+		}
+
+		if (InteractPanel)
+		{
+			InteractPanel.SetActive(!context.Interacting);
+		}
+
+		if (InteractText)
+		{
+			InteractText.text = Listener != null ? Listener.GetActionName() + " [E]" : "";
 		}
 	}
 }

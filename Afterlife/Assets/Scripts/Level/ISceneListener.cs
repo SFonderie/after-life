@@ -12,8 +12,13 @@ public interface ISceneListener
 	public void OnPlayerEnter(Collider player);
 
 	/// <summary>
-	/// Invoked by Scene Triggers once each time a plauer exits them.
+	/// Invoked by Scene Triggers once each time a player exits them.
 	/// </summary>
 	/// <param name="player">Player collider component.</param>
 	public void OnPlayerExit(Collider player);
+
+	/// <summary>
+	/// Invoked by certain assets whenever a player triggers them.
+	/// </summary>
+	public void OnLevelSequence();
 }

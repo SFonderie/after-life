@@ -40,7 +40,7 @@ public class PlayerContext : BehaviorContext
 	/// <summary>
 	/// Pointer to the player's inspection transform.
 	/// </summary>
-	public Transform InspectTransform { get; set; }
+	public Transform PickupTransform { get; set; }
 
 	/// <summary>
 	/// Per-frame player movement intent.
@@ -58,7 +58,12 @@ public class PlayerContext : BehaviorContext
 	public bool Grounded { get; set; }
 
 	/// <summary>
-	/// Per-frame inspection state.
+	/// Per-frame interaction state. Blocks movement.
+	/// </summary>
+	public bool Interacting { get; set; }
+
+	/// <summary>
+	/// Per-frame inspection state. Blocks looking.
 	/// </summary>
 	public bool Inspecting { get; set; }
 }

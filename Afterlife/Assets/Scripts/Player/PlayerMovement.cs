@@ -74,9 +74,9 @@ public class PlayerMovement : PlayerDelegate
 
 	public override void HandleInput(InputAction.CallbackContext context)
 	{
-		if (context.action.name.Equals("Movement") && !_ignoreInput)
+		if (context.action.name.Equals("Movement"))
 		{
-			_intent = context.ReadValue<Vector2>();
+			_intent = _ignoreInput ? Vector2.zero : context.ReadValue<Vector2>();
 		}
 
 		if (context.action.name.Equals("Jump"))
@@ -88,7 +88,7 @@ public class PlayerMovement : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
-		_ignoreInput = context.Inspecting;
+		_ignoreInput = context.Interacting;
 
 		if (_controller)
 		{

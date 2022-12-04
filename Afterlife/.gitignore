@@ -11,6 +11,10 @@
 /[Mm]emoryCaptures/
 /[Uu]serSettings/
 
+# Some assets are too big to send to GitHub
+/[Aa]ssets/[Dd]ata/
+/[Aa]ssets/[Oo]versize/
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 

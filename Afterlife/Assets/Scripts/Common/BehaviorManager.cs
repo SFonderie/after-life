@@ -64,4 +64,21 @@ public abstract class BehaviorManager<TDelegate, TContext> : MonoBehaviour
 		Delegates.AddRange(GetComponentsInChildren<TDelegate>());
 		Delegates.Sort();
 	}
+
+	public void TakeDamage(float damage)
+	{
+		Context.Damage += damage;
+
+		if (Context.Damage >= Context.Health)
+		{
+			OnDeath();
+		}
+
+		Debug.Log("Health is " + (Context.Health - Context.Damage) + " / " + Context.Health);
+	}
+
+	public virtual void OnDeath()
+	{
+		// Override to create death effects.
+	}
 }

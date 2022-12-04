@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Clip
   - Water
   - UI
-  - 
+  - Pickup
   - 
   - 
   - 

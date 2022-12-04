@@ -59,6 +59,16 @@ public class Pickup : MonoBehaviour, IPlayerListener
 		{
 			ItemTransform.position = SMath.RecursiveLerp(ItemTransform.position, Target.position, 0.1f, 4 * Time.deltaTime);
 			ItemTransform.rotation = SMath.RecursiveLerp(ItemTransform.rotation, Target.rotation, 0.1f, 8 * Time.deltaTime);
+
+			// Only switch back to the default layer once the object is safely in place.
+			if ((DefaultTransform.position - ItemTransform.position).sqrMagnitude < 0.0001f)
+			{
+				ItemTransform.gameObject.layer = LayerMask.NameToLayer("Default");
+			}
+			else
+			{
+				ItemTransform.gameObject.layer = LayerMask.NameToLayer("Pickup");
+			}
 		}
 	}
 

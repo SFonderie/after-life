@@ -1283,6 +1283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d946d7f252412b418067510c377a735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeypadCollider: {fileID: 300050487999487060}
   KeypadPanel: {fileID: 300050487519689257}
   CodeText: {fileID: 300050487510125891}
   CorrectCode: 1234

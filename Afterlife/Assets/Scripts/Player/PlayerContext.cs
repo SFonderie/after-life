@@ -66,4 +66,9 @@ public class PlayerContext : BehaviorContext
 	/// Per-frame inspection state. Blocks looking.
 	/// </summary>
 	public bool Inspecting { get; set; }
+
+	/// <summary>
+	/// Trigger the weapon pickup?
+	/// </summary>
+	public bool DoWeaponPickup { get; set; }
 }

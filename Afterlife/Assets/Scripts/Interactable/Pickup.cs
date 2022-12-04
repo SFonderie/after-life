@@ -67,7 +67,7 @@ public class Pickup : MonoBehaviour, IPlayerListener
 			}
 			else
 			{
-				ItemTransform.gameObject.layer = LayerMask.NameToLayer("Clip");
+				ItemTransform.gameObject.layer = LayerMask.NameToLayer("Pickup");
 			}
 		}
 	}

@@ -31,6 +31,11 @@ public class Keypad : MonoBehaviour, IPlayerListener
 	private MonoBehaviour[] Listeners = null;
 
 	/// <summary>
+	/// Local reference to the player context; used to force-interact.
+	/// </summary>
+	private PlayerContext local = null;
+
+	/// <summary>
 	/// Current entered code value.
 	/// </summary>
 	private string code = "";
@@ -58,6 +63,9 @@ public class Keypad : MonoBehaviour, IPlayerListener
 
 	public void OnStartInteract(PlayerContext context)
 	{
+		// Steal the context.
+		local = context;
+
 		// Lock the player in place.
 		context.Interacting = true;
 		context.Inspecting = true;
@@ -123,6 +131,12 @@ public class Keypad : MonoBehaviour, IPlayerListener
 			Debug.Log("Code CONFIRMED");
 			// Play a nice sound?
 
+			// Force out the keypad.
+			OnStopInteract(local);
+			local.Interacting = false;
+			local.Inspecting = false;
+			local = null;
+
 			foreach (MonoBehaviour script in Listeners)
 			{
 				if (script is ISceneListener listener)
@@ -138,6 +152,7 @@ public class Keypad : MonoBehaviour, IPlayerListener
 
 			code = "";
 			CodeText.text = "_ _ _ _";
+			currentCodeLength = 0;
 		}
 	}
 

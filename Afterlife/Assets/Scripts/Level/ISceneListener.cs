@@ -21,4 +21,18 @@ public interface ISceneListener
 	/// Invoked by certain assets whenever a player triggers them.
 	/// </summary>
 	public void OnLevelSequence();
+
+	/// <summary>
+	/// Triggers the level sequence on all matching listeners.
+	/// </summary>
+	public static void DispatchEvents(MonoBehaviour[] candidates)
+	{
+		foreach (MonoBehaviour candidate in candidates)
+		{
+			if (candidate is ISceneListener listener)
+			{
+				listener.OnLevelSequence();
+			}
+		}
+	}
 }

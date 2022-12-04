@@ -43,13 +43,8 @@ public class FuseBox : MonoBehaviour
 			Debug.Log("Breakers SUCCESS");
 			// Play a nice sound here?
 
-			foreach (MonoBehaviour script in Listeners)
-			{
-				if (script is ISceneListener listener)
-				{
-					listener.OnLevelSequence();
-				}
-			}
+			// Dispatch level sequence events.
+			ISceneListener.DispatchEvents(Listeners);
 		}
 		else
 		{

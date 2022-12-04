@@ -38,6 +38,36 @@ public class PlayerContext : BehaviorContext
 	public float AirControl = 0.05f;
 
 	/// <summary>
+	/// Time in seconds it takes to draw a weapon.
+	/// </summary>
+	[Header("Weapon"), Min(0), Tooltip("Time in seconds it takes to draw a weapon.")]
+	public float WeaponDrawTime = 1f;
+
+	/// <summary>
+	/// Time in seconds it takes to charge the weapon.
+	/// </summary>
+	[Min(0), Tooltip("Time in seconds it takes to charge the weapon.")]
+	public float WeaponChargeTime = 1f;
+
+	/// <summary>
+	/// Minimum time in seconds between discharges.
+	/// </summary>
+	[Min(0), Tooltip("Minimum time in seconds between discharges.")]
+	public float WeaponFireDelay = 0.2f;
+
+	/// <summary>
+	/// Projectile speed in units per second.
+	/// </summary>
+	[Min(0), Tooltip("Projectile speed in units per second.")]
+	public float ProjectileSpeed = 40f;
+
+	/// <summary>
+	/// Projectile damage.
+	/// </summary>
+	[Min(10), Tooltip("Projectile damage.")]
+	public float ProjectileDamage = 50f;
+
+	/// <summary>
 	/// Pointer to the player's inspection transform.
 	/// </summary>
 	public Transform PickupTransform { get; set; }
@@ -66,6 +96,11 @@ public class PlayerContext : BehaviorContext
 	/// Per-frame inspection state. Blocks looking.
 	/// </summary>
 	public bool Inspecting { get; set; }
+
+	/// <summary>
+	/// Is the player currently armed?
+	/// </summary>
+	public bool Armed { get; set; }
 
 	/// <summary>
 	/// Trigger the weapon pickup?

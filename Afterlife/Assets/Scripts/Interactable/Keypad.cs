@@ -137,13 +137,8 @@ public class Keypad : MonoBehaviour, IPlayerListener
 			local.Inspecting = false;
 			local = null;
 
-			foreach (MonoBehaviour script in Listeners)
-			{
-				if (script is ISceneListener listener)
-				{
-					listener.OnLevelSequence();
-				}
-			}
+			// Dispatch level sequence events.
+			ISceneListener.DispatchEvents(Listeners);
 		}
 		else
 		{

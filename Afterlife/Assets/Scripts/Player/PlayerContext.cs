@@ -106,4 +106,10 @@ public class PlayerContext : BehaviorContext
 	/// Trigger the weapon pickup?
 	/// </summary>
 	public bool DoWeaponPickup { get; set; }
+
+	public override void Update()
+	{
+		Damage -= Time.deltaTime * 2;
+		Damage = Mathf.Clamp(Damage, 0, Health);
+	}
 }

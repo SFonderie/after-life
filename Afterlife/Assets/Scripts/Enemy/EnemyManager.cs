@@ -3,5 +3,9 @@
 /// </summary>
 public class EnemyManager : BehaviorManager<EnemyDelegate, EnemyContext>
 {
-	// Enemy manager goes here...
+	public override void OnDeath()
+	{
+		// Kill ourselves.
+		Destroy(gameObject);
+	}
 }

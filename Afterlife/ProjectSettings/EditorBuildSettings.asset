@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/DanielNice.unity
+    guid: 4d4bfa393a09d27408d0f5dcdc660ccd
+  - enabled: 1
+    path: Assets/Scenes/recording room (contain radio player).unity
+    guid: d0d74fef1efc1364a9e2a24b56347675
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 491c30f197a684049b5ac429f6909af8, type: 2}

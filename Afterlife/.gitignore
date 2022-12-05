@@ -12,9 +12,13 @@
 /[Uu]serSettings/
 
 # Some assets are too big to send to GitHub
-/[Aa]ssets/[Dd]ata/
-/[Aa]ssets/[Oo]versize/
+/[Aa]ssets/Clipboard/
+/[Aa]ssets/Data/
+/[Aa]ssets/Horror School Props/
+/[Aa]ssets/NAACo/
+/[Aa]ssets/Oversize/
 /[Aa]ssets/ScifiOfficeLite/
+/[Aa]ssets/Tables and Chairs/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

@@ -14,7 +14,9 @@
 # Some assets are too big to send to GitHub
 /[Aa]ssets/[Dd]ata/
 /[Aa]ssets/[Oo]versize/
-/[Aa]ssets/ScifiOfficeLite/
+/[Aa]ssets/[Ss]cifiOfficeLite/
+/[Aa]ssets/[Hh]orror School Props/
+/[Aa]ssets/[Tt]ables and Chairs/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

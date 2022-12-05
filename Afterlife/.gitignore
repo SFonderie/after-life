@@ -18,6 +18,10 @@
 /[Aa]ssets/NAACo/
 /[Aa]ssets/[Oo]versize/
 /[Aa]ssets/ScifiOfficeLite/
+/[Aa]ssets/Clipboard/
+/[Aa]ssets/Horror School Props/
+/[Aa]ssets/NAACo/
+/[Aa]ssets/Sci-Fi Old rusty props PBR/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

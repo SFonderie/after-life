@@ -19,6 +19,7 @@
 /[Aa]ssets/Horror School Props/
 /[Aa]ssets/NAACo/
 /[Aa]ssets/Sci-Fi Old rusty props PBR/
+/[Aa]ssets/Tables and Chairs/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

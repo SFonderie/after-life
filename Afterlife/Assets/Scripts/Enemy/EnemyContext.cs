@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 /// <summary>
 /// Contains shared Enemy Object data.
@@ -6,5 +7,13 @@ using System;
 [Serializable]
 public class EnemyContext : BehaviorContext
 {
-	// Enemy context goes here...
+	/// <summary>
+	/// How angry the enemy is.
+	/// </summary>
+	public float Anger { get; set; }
+
+	/// <summary>
+	/// Per-frame enemy velocity.
+	/// </summary>
+	public Vector3 Velocity { get; set; }
 }

@@ -74,10 +74,10 @@ public class PlayerCamera : PlayerDelegate
 
 	public override void HandleInput(InputAction.CallbackContext context)
 	{
-		if (context.action.name.Equals("Camera") && !_ignoreInput)
+		if (context.action.name.Equals("Camera"))
 		{
 			_normalized = !(context.action.activeControl.device is Pointer);
-			_input = context.ReadValue<Vector2>();
+			_input = _ignoreInput ? Vector2.zero : context.ReadValue<Vector2>();
 		}
 	}
 

@@ -64,6 +64,11 @@ public class PlayerWeapon : PlayerDelegate
 	/// </summary>
 	private bool CanAttack = false;
 
+	/// <summary>
+	/// Ignore attack inputs?
+	/// </summary>
+	private bool IgnoreInput = false;
+
 	void Start()
 	{
 		// Hide the weapon model.
@@ -74,13 +79,15 @@ public class PlayerWeapon : PlayerDelegate
 	{
 		if (context.action.name.Equals("Attack"))
 		{
-			DoAttack = context.performed && !BlockAttack;
+			DoAttack = context.performed && !BlockAttack && !IgnoreInput;
 			BlockAttack = BlockAttack && !(BlockAttack && context.canceled);
 		}
 	}
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
+		IgnoreInput = context.Interacting;
+
 		// Draw the weapon if applicable.
 		if (context.DoWeaponPickup)
 		{
@@ -126,8 +133,6 @@ public class PlayerWeapon : PlayerDelegate
 		{
 			Charge += Time.deltaTime / context.WeaponChargeTime;
 
-			Debug.Log(Charge);
-
 			if (Charge >= 1)
 			{
 				// Automatic discharge.
@@ -145,9 +150,12 @@ public class PlayerWeapon : PlayerDelegate
 
 	private void DischargeWeapon(PlayerContext context)
 	{
+		// Spawn the projectile and calculate a desired velocity for it.
 		GameObject projectile = Instantiate(ProjectilePrefab, Muzzle.position, Muzzle.rotation);
+		Vector3 velocity = Muzzle.forward * context.ProjectileSpeed;// + context.Velocity;
+
+		// Actually apply the velocity and damage to the projectile.
 		Projectile script = projectile.GetComponent<Projectile>();
-		Vector3 velocity = Muzzle.forward * context.ProjectileSpeed;
 		script.OnSpawn(velocity, context.ProjectileDamage);
 
 		DoAttack = false;

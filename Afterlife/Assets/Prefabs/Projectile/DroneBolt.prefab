@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8406328583279551630}
   - component: {fileID: 4267091449459937178}
   m_Layer: 0
-  m_Name: PlayerBolt
+  m_Name: DroneBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 690376999110864204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1824438687335321729}
@@ -111,7 +111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 18893694cefbd0947b56de30e92425fe, type: 2}
+  - {fileID: 2100000, guid: 1b95f99ee7f02bf428c6df3b30d4a292, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,7 +177,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.16470589, g: 0.9960785, b: 0.9960785, a: 1}
+  m_Color: {r: 0.9960785, g: 0.14509805, b: 0.40000004, a: 1}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
@@ -301,7 +301,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 18893694cefbd0947b56de30e92425fe, type: 2}
+  - {fileID: 2100000, guid: 1b95f99ee7f02bf428c6df3b30d4a292, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -331,7 +331,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.03968239
+        value: 0.13492775
         inSlope: 0.12027992
         outSlope: 0.12027992
         tangentMode: 0
@@ -352,8 +352,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.15686275, g: 0.9960785, b: 0.9960785, a: 1}
-      key1: {r: 0.15294118, g: 0.9960785, b: 0.9960785, a: 1}
+      key0: {r: 0.9960785, g: 0.16078432, b: 0.4039216, a: 1}
+      key1: {r: 0.9960785, g: 0.23137257, b: 0.43921572, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

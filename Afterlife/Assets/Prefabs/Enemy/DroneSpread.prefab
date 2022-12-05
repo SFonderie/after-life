@@ -1563,6 +1563,7 @@ MonoBehaviour:
   - {fileID: 4255752913447612882}
   VisionRadius: 30
   IgnoreEnemy: 0
+  Wallhack: 0
   ProjectilePrefab: {fileID: 690376999110864204, guid: eaea7be106ae2ac4eae2fb1d12a6cdf1, type: 3}
   FireDelay: 3
   BurstDelay: 0.5

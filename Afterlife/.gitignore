@@ -13,15 +13,12 @@
 
 # Some assets are too big to send to GitHub
 /[Aa]ssets/Clipboard/
-/[Aa]ssets/[Dd]ata/
+/[Aa]ssets/Data/
 /[Aa]ssets/Horror School Props/
 /[Aa]ssets/NAACo/
-/[Aa]ssets/[Oo]versize/
+/[Aa]ssets/Oversize/
 /[Aa]ssets/ScifiOfficeLite/
-/[Aa]ssets/Clipboard/
-/[Aa]ssets/Horror School Props/
-/[Aa]ssets/NAACo/
-/[Aa]ssets/Sci-Fi Old rusty props PBR/
+/[Aa]ssets/Tables and Chairs/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

@@ -33,7 +33,7 @@ public class DroneControl : EnemyDelegate
 	/// If true, forces the drone to ignore foes.
 	/// </summary>
 	[SerializeField, Tooltip("If true, forces the drone to ignore foes.")]
-	private bool IgnoreEnemy = false;
+	public bool IgnoreEnemy = false;
 
 	/// <summary>
 	/// If true, attack even when vision is blocked.
@@ -130,7 +130,7 @@ public class DroneControl : EnemyDelegate
 					if (Physics.Raycast(transform.position, direction / magnitude, magnitude, mask))
 					{
 						// THERE IS SOMETHING IN THE WAY!
-						UpdateMovement(context, collider);
+						DelayAttack();
 					}
 					else
 					{
@@ -140,13 +140,17 @@ public class DroneControl : EnemyDelegate
 				}
 			}
 		}
+		else
+		{
+			DelayAttack();
+		}
 
 		Anger -= Time.deltaTime;
 		Anger = Mathf.Clamp(Anger, 0, 1);
 		context.Anger = Anger;
 	}
 
-	private void UpdateMovement(EnemyContext context, Collider collider)
+	private void DelayAttack()
 	{
 		if (FireTime < Time.time + 1)
 		{

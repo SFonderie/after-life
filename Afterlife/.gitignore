@@ -15,10 +15,15 @@
 /[Aa]ssets/Clipboard/
 /[Aa]ssets/Data/
 /[Aa]ssets/Horror School Props/
+/[Aa]ssets/Modern Furniture/
 /[Aa]ssets/NAACo/
 /[Aa]ssets/Oversize/
 /[Aa]ssets/ScifiOfficeLite/
 /[Aa]ssets/Tables and Chairs/
+/[Aa]ssets/Modern Furniture/
+/[Aa]ssets/Props/
+/[Aa]ssets/RPG_FPS_game_assets_industrial/
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

@@ -77,6 +77,11 @@ public abstract class BehaviorManager<TDelegate, TContext> : MonoBehaviour
 		Debug.Log("Health is " + (Context.Health - Context.Damage) + " / " + Context.Health);
 	}
 
+	public virtual void OnDamage()
+	{
+		// Override to create damage effects.
+	}
+
 	public virtual void OnDeath()
 	{
 		// Override to create death effects.

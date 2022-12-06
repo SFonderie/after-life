@@ -83,6 +83,7 @@ public class FadeCamera : PlayerDelegate
             if(Interpolation >= _curveTime)
             {
                 context.IsFadeOut = false;
+                Interpolation = 0;
             }
 		}
     }

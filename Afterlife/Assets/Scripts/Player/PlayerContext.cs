@@ -107,6 +107,26 @@ public class PlayerContext : BehaviorContext
 	/// </summary>
 	public bool DoWeaponPickup { get; set; }
 
+	/// <summary>
+	/// Current monologue text line.
+	/// </summary>
+	public string Monologue { get; set; }
+
+	/// <summary>
+	/// Current dialogue text line.
+	/// </summary>
+	public string Dialogue { get; set; }
+
+	/// <summary>
+	/// Time at which the monologue will expire.
+	/// </summary>
+	public float MonologueTime { get; set; }
+
+	/// <summary>
+	/// Time at which the dialogue will expire.
+	/// </summary>
+	public float DialogueTime { get; set; }
+
 	public override void Update()
 	{
 		Damage -= Time.deltaTime * 2;

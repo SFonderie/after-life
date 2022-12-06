@@ -107,6 +107,16 @@ public class PlayerContext : BehaviorContext
 	/// </summary>
 	public bool DoWeaponPickup { get; set; }
 
+	/// <summary>
+	/// Trigger the weapon pickup?
+	/// </summary>
+	public bool IsFadeOut { get; set; }
+
+	/// <summary>
+	/// Trigger the weapon pickup?
+	/// </summary>
+	public bool IsFadeLevelMax { get; set; }
+
 	public override void Update()
 	{
 		Damage -= Time.deltaTime * 2;

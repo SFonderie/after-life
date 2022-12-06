@@ -19,6 +19,10 @@
 /[Aa]ssets/Oversize/
 /[Aa]ssets/ScifiOfficeLite/
 /[Aa]ssets/Tables and Chairs/
+/[Aa]ssets/Modern Furniture/
+/[Aa]ssets/office-assets/
+/[Aa]ssets/Props/
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

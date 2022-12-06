@@ -92,6 +92,6 @@ public class SlideDoor : MonoBehaviour, ISceneListener
 
 	public void OnLevelSequence()
 	{
-		IsLocked = false;
+		IsLocked = !IsLocked;
 	}
 }

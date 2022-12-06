@@ -613,11 +613,11 @@ MonoBehaviour:
     Health: 100
     MovementSpeed: 2
     GroundControl: 1
-    JumpHeight: 1
+    JumpHeight: 0.75
     CoyoteTime: 0.2
     AirControl: 0.05
     WeaponDrawTime: 1
-    WeaponChargeTime: 1
+    WeaponChargeTime: 0.75
     WeaponFireDelay: 0.2
     ProjectileSpeed: 25
     ProjectileDamage: 50
@@ -1215,8 +1215,16 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3528854763878510194, guid: 53edf657ce79c2241b1ea6e14a31afd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528854763878510194, guid: 53edf657ce79c2241b1ea6e14a31afd3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3528854763878510194, guid: 53edf657ce79c2241b1ea6e14a31afd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.05
       objectReference: {fileID: 0}
     - target: {fileID: 3528854763878510194, guid: 53edf657ce79c2241b1ea6e14a31afd3, type: 3}
       propertyPath: m_LocalRotation.w

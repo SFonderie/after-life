@@ -101,7 +101,7 @@ public class EnemyController : MonoBehaviour, ISceneListener
 				float interpolate = (Enemy.Time - Enemy.SpawnDelay) / Enemy.SpawnTime;
 
 				// Only attack after the spawn delay is done.
-				Enemy.Control.IgnoreEnemy = interpolate < 0;
+				Enemy.Control.IgnoreEnemy = interpolate < 1;
 
 				// Clamp the rest for animation purposes.
 				interpolate = Mathf.Clamp(interpolate, 0, 1);

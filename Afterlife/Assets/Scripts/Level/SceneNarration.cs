@@ -83,6 +83,8 @@ public class SceneNarration : MonoBehaviour, ISceneListener
 				Manager.Context.Dialogue = NarrationText;
 				Manager.Context.DialogueTime = Time.time + Duration;
 			}
+
+			Fired = true;
 		}
 	}
 }

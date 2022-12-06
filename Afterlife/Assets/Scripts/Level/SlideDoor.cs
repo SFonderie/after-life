@@ -24,6 +24,12 @@ public class SlideDoor : MonoBehaviour, ISceneListener
 	private Transform CloseLocation = null;
 
 	/// <summary>
+	/// Optional lights associated with the door's lock.
+	/// </summary>
+	[SerializeField, Tooltip("Optional lights associated with the door's lock.")]
+	private Light[] LockLights = null;
+
+	/// <summary>
 	/// Time it takes for the door to open or close.
 	/// </summary>
 	[Range(0.05f, 1f), SerializeField, Tooltip("Time it takes for the door to open or close.")]
@@ -77,6 +83,18 @@ public class SlideDoor : MonoBehaviour, ISceneListener
 
 			transform.position = Vector3.Lerp(A.position, B.position, SlideCurve.Evaluate(Interpolation));
 			transform.rotation = Quaternion.Lerp(A.rotation, B.rotation, SlideCurve.Evaluate(Interpolation));
+		}
+
+		foreach (Light light in LockLights)
+		{
+			if (IsLocked)
+			{
+				light.color = Color.red;
+			}
+			else
+			{
+				light.color = Color.green;
+			}
 		}
 	}
 

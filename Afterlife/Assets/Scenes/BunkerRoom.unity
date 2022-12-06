@@ -4401,7 +4401,7 @@ PrefabInstance:
       objectReference: {fileID: 1946306520}
     - target: {fileID: 8115765453046178648, guid: 7d02f8240cea3ae4297b7b5587e66d7c, type: 3}
       propertyPath: m_Name
-      value: SceneTriggerBox
+      value: Hallway Trigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d02f8240cea3ae4297b7b5587e66d7c, type: 3}
@@ -5313,7 +5313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205272716038098104, guid: 44c38a80d0f499f4daf8a3176e98f8bf, type: 3}
       propertyPath: Enemies.Array.data[0].SpawnDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3205272716038098104, guid: 44c38a80d0f499f4daf8a3176e98f8bf, type: 3}
       propertyPath: Enemies.Array.data[1].SpawnDelay
@@ -6343,7 +6343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205272716038098104, guid: 44c38a80d0f499f4daf8a3176e98f8bf, type: 3}
       propertyPath: Enemies.Array.data[0].SpawnDelay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3205272716038098104, guid: 44c38a80d0f499f4daf8a3176e98f8bf, type: 3}
       propertyPath: Enemies.Array.data[1].SpawnDelay
@@ -11340,7 +11340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3232863799964673926, guid: c4e7e1c27e5abfc4db5c0d646295a203, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.51
+      value: -16.53
       objectReference: {fileID: 0}
     - target: {fileID: 3232863799964673926, guid: c4e7e1c27e5abfc4db5c0d646295a203, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11348,7 +11348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3232863799964673926, guid: c4e7e1c27e5abfc4db5c0d646295a203, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.93
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3232863799964673926, guid: c4e7e1c27e5abfc4db5c0d646295a203, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12364,7 +12364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2565864995010044021, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.59
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 2565864995010044021, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12372,7 +12372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2565864995010044021, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.05
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2565864995010044021, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}
       propertyPath: m_LocalRotation.w

@@ -332,6 +332,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8858777614916873616, guid: 15548acec578811459ab4501cdc926a4, type: 3}
+      propertyPath: Solution.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858777614916873616, guid: 15548acec578811459ab4501cdc926a4, type: 3}
       propertyPath: Solution.Array.data[5]
       value: 0
       objectReference: {fileID: 0}
@@ -5160,6 +5164,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 695529637497350652, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}
+      propertyPath: _context.WeaponChargeTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1777879679146146807, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}
       propertyPath: near clip plane
       value: 0.1
@@ -5235,6 +5243,10 @@ PrefabInstance:
     - target: {fileID: 6688288205257030987, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8535250286915451958, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8001963286280390204, guid: f08734334f5cad64d8b43c441d493f9a, type: 3}

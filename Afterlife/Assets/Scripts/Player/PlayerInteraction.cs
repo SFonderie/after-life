@@ -162,6 +162,13 @@ public class PlayerInteraction : PlayerDelegate
 				DoPause = false;
 				BlockPause = false;
 			}
+
+			if (context.Interacting)
+			{
+				Listener.OnStopInteract(context);
+				context.Interacting = false;
+				context.Inspecting = false;
+			}
 		}
 
 		if (!PlayerLook || !PlayerInspect)

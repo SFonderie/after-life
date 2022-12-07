@@ -588,7 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1712,11 +1712,13 @@ MonoBehaviour:
     CoyoteTime: 0.2
     AirControl: 0.05
     WeaponDrawTime: 1
-    WeaponChargeTime: 0.75
+    WeaponChargeTime: 0.5
     WeaponFireDelay: 0.2
     ProjectileSpeed: 25
     ProjectileDamage: 50
+    Armed: 1
   _input: {fileID: 5441964219151436830}
+  InjuryImage: {fileID: 1897387885160172657}
 --- !u!114 &3374754370254619924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2474,7 +2476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3528854763878510194, guid: 53edf657ce79c2241b1ea6e14a31afd3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3528854763878510194, guid: 53edf657ce79c2241b1ea6e14a31afd3, type: 3}
       propertyPath: m_LocalPosition.z

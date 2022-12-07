@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -65,5 +66,11 @@ public class PlayerManager : BehaviorManager<PlayerDelegate, PlayerContext>
 	public override void OnDamage()
 	{
 		TargetAlpha = MaxAlpha * 3;
+	}
+
+	public override void OnDeath()
+	{
+		Scene scene = SceneManager.GetActiveScene();
+		SceneManager.LoadScene(scene.name);
 	}
 }

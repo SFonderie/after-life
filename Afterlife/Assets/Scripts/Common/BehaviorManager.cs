@@ -26,18 +26,18 @@ public abstract class BehaviorManager<TDelegate, TContext> : MonoBehaviour
 	/// </summary>
 	protected List<TDelegate> Delegates { get; } = new List<TDelegate>();
 
-	void Awake()
+	public virtual void Awake()
 	{
 		LocateDelegates();
 		Context.Awake();
 	}
 
-	void Start()
+	public virtual void Start()
 	{
 		Context.Start();
 	}
 
-	void Update()
+	public virtual void Update()
 	{
 		Context.Update();
 
@@ -75,6 +75,7 @@ public abstract class BehaviorManager<TDelegate, TContext> : MonoBehaviour
 		}
 
 		Debug.Log("Health is " + (Context.Health - Context.Damage) + " / " + Context.Health);
+		OnDamage();
 	}
 
 	public virtual void OnDamage()

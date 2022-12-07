@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f826e716f5228f488587d7096935ddd, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  SensitivityPointer: 0.25
+  SensitivityPointer: 0.15
   SensitivityNormal: 50
   InvertCameraY: 0

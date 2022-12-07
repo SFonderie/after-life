@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ca11968f0800bfb419da7ed50fe78606
+  - enabled: 1
+    path: Assets/Scenes/SydneyNice.unity
+    guid: 4cf7a861b80d837418d556fa5b1b456a
+  - enabled: 1
     path: Assets/Scenes/DanielNice.unity
     guid: 4d4bfa393a09d27408d0f5dcdc660ccd
   - enabled: 1

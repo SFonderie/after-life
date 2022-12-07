@@ -83,7 +83,7 @@ public class PlayerCamera : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
-		_ignoreInput = context.Inspecting || context.Paused;
+		_ignoreInput = context.Inspecting || context.Paused || context.Dead;
 
 		if (_settings && _player && _camera)
 		{

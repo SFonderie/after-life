@@ -14,6 +14,9 @@ public class MainMenu : MonoBehaviour
 	void Start()
 	{
 		LoadingBar.gameObject.SetActive(false);
+
+		// Makes sure that time resumes if we come from a pause menu.
+		Time.timeScale = 1;
 	}
 
 	public void OnPlay()

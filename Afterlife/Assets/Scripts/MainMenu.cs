@@ -8,9 +8,6 @@ public class MainMenu : MonoBehaviour
 	[SerializeField, Tooltip("Loading bar slider object.")]
 	private Slider LoadingBar = null;
 
-	[SerializeField, Tooltip("Exact name of the scene to load when the player presses the load button.")]
-	private string NextSceneName = "SydneyNice";
-
 	void Start()
 	{
 		LoadingBar.gameObject.SetActive(false);
@@ -32,7 +29,8 @@ public class MainMenu : MonoBehaviour
 
 	IEnumerator LoadScene()
 	{
-		AsyncOperation loader = SceneManager.LoadSceneAsync(NextSceneName);
+		Scene scene = SceneManager.GetActiveScene();
+		AsyncOperation loader = SceneManager.LoadSceneAsync(scene.buildIndex + 1);
 
 		while (!loader.isDone)
 		{

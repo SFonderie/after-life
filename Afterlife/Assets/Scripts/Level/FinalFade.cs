@@ -33,6 +33,8 @@ public class FinalFade : MonoBehaviour, ISceneListener
 	{
 		if (Fired)
 		{
+			Manager.Context.Interacting = true;
+
 			SceneTime += Time.deltaTime;
 
 			if (SceneTime > MainDelay + BlackDelay)

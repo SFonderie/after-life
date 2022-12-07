@@ -148,6 +148,11 @@ public class PlayerContext : BehaviorContext
 	/// </summary>
 	public int TapeState { get; set; }
 
+	/// <summary>
+	/// Is the player dead?
+	/// </summary>
+	public bool Dead { get; set; }
+
 	public override void Update()
 	{
 		Damage -= Time.deltaTime * 3;

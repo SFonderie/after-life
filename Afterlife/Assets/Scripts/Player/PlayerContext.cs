@@ -98,6 +98,11 @@ public class PlayerContext : BehaviorContext
 	public bool Inspecting { get; set; }
 
 	/// <summary>
+	/// Is the player paused right now?
+	/// </summary>
+	public bool Paused { get; set; }
+
+	/// <summary>
 	/// Is the player currently armed?
 	/// </summary>
 	public bool Armed { get; set; }

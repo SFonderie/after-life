@@ -1,6 +1,8 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -25,6 +27,18 @@ public class PlayerInteraction : PlayerDelegate
 	/// </summary>
 	[SerializeField, Tooltip("Interaction tooltip and crosshair panel.")]
 	private GameObject InteractPanel = null;
+
+	/// <summary>
+	/// Paused game panel.
+	/// </summary>
+	[SerializeField, Tooltip("Paused game panel.")]
+	private GameObject PausePanel = null;
+
+	/// <summary>
+	/// Main menu loading slider.
+	/// </summary>
+	[SerializeField, Tooltip("Main menu loading slider.")]
+	private Slider MenuLoad = null;
 
 	/// <summary>
 	/// Interaction tooltip text.
@@ -59,6 +73,21 @@ public class PlayerInteraction : PlayerDelegate
 	/// </summary>
 	private bool BlockInteract = false;
 
+	/// <summary>
+	/// Should a pause occur this frame?
+	/// </summary>
+	private bool DoPause = false;
+
+	/// <summary>
+	/// Should pauses be ignored?
+	/// </summary>
+	private bool BlockPause = false;
+
+	/// <summary>
+	/// Special bool; DO NOT TOUCH.
+	/// </summary>
+	private bool DoUnpause = false;
+
 	void Start()
 	{
 		if (!PlayerLook)
@@ -70,6 +99,8 @@ public class PlayerInteraction : PlayerDelegate
 		{
 			Debug.LogError("[PLAYER INTERACTION] - NO INSPECTION TRANSFORM LINKED; INTERACTION DISABLED.");
 		}
+
+		MenuLoad.gameObject.SetActive(false);
 	}
 
 	public override void HandleInput(InputAction.CallbackContext context)
@@ -78,6 +109,12 @@ public class PlayerInteraction : PlayerDelegate
 		{
 			DoInteract = context.performed && !BlockInteract;
 			BlockInteract = BlockInteract && !(BlockInteract && context.canceled);
+		}
+
+		if (context.action.name.Equals("Pause"))
+		{
+			DoPause = context.performed && !BlockPause;
+			BlockPause = BlockPause && !(BlockPause && context.canceled);
 		}
 	}
 
@@ -104,6 +141,29 @@ public class PlayerInteraction : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
+		if (((DoPause && !BlockPause) || DoUnpause) && PausePanel)
+		{
+			context.Paused = !context.Paused;
+
+			// WARNING! NUCLEAR CODE DETECTED.
+			Time.timeScale = context.Paused ? 0 : 1;
+
+			Cursor.lockState = context.Paused ? CursorLockMode.Confined : CursorLockMode.Locked;
+			Cursor.visible = context.Paused;
+
+			if (!DoUnpause)
+			{
+				DoPause = false;
+				BlockPause = true;
+			}
+			else
+			{
+				DoUnpause = false;
+				DoPause = false;
+				BlockPause = false;
+			}
+		}
+
 		if (!PlayerLook || !PlayerInspect)
 		{
 			return;
@@ -111,7 +171,7 @@ public class PlayerInteraction : PlayerDelegate
 
 		context.PickupTransform = PlayerInspect;
 
-		if (Listener != null)
+		if (Listener != null && !context.Paused)
 		{
 			Listener.OnHover(context);
 
@@ -135,12 +195,46 @@ public class PlayerInteraction : PlayerDelegate
 
 		if (InteractPanel)
 		{
-			InteractPanel.SetActive(!context.Interacting);
+			InteractPanel.SetActive(!context.Interacting && !context.Paused);
+		}
+
+		if (PausePanel)
+		{
+			PausePanel.SetActive(context.Paused);
 		}
 
 		if (InteractText)
 		{
 			InteractText.text = Listener != null ? Listener.GetActionName() + " [E]" : "";
+		}
+	}
+
+	/// <summary>
+	/// Invoked by buttons to unpause the game.
+	/// </summary>
+	public void Unpause()
+	{
+		DoUnpause = true;
+	}
+
+	public void LoadMainMenu()
+	{
+		MenuLoad.gameObject.SetActive(true);
+		StartCoroutine(LoadScene());
+	}
+
+	IEnumerator LoadScene()
+	{
+		AsyncOperation loader = SceneManager.LoadSceneAsync("MainMenu");
+
+		while (!loader.isDone)
+		{
+			if (MenuLoad)
+			{
+				MenuLoad.value = loader.progress;
+			}
+
+			yield return null;
 		}
 	}
 }

@@ -160,7 +160,7 @@ public class PlayerWeapon : PlayerDelegate
 
 		// Actually apply the velocity and damage to the projectile.
 		Projectile script = projectile.GetComponent<Projectile>();
-		script.OnSpawn(velocity, context.ProjectileDamage);
+		script.OnSpawn(velocity, context.ProjectileDamage, "Player");
 
 		DoAttack = false;
 		BlockAttack = true;

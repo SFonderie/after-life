@@ -86,7 +86,7 @@ public class PlayerWeapon : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
-		IgnoreInput = context.Interacting || context.Paused || context.Dead;
+		IgnoreInput = context.Interacting || context.Paused || context.Blocked;
 
 		// Draw the weapon if applicable.
 		if (context.DoWeaponPickup)

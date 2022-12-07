@@ -153,6 +153,16 @@ public class PlayerContext : BehaviorContext
 	/// </summary>
 	public bool Dead { get; set; }
 
+	/// <summary>
+	/// Is the player winner?
+	/// </summary>
+	public bool Winner { get; set; }
+
+	/// <summary>
+	/// Disable the player?
+	/// </summary>
+	public bool Blocked => Dead || Winner;
+
 	public override void Update()
 	{
 		Damage -= Time.deltaTime * 3;

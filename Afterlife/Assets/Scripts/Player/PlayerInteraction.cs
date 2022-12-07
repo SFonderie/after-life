@@ -141,7 +141,7 @@ public class PlayerInteraction : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
-		if (((DoPause && !BlockPause) || DoUnpause) && PausePanel && !context.Dead)
+		if (((DoPause && !BlockPause) || DoUnpause) && PausePanel && !context.Blocked)
 		{
 			if (context.Interacting)
 			{
@@ -178,7 +178,7 @@ public class PlayerInteraction : PlayerDelegate
 
 		context.PickupTransform = PlayerInspect;
 
-		if (Listener != null && !context.Paused && !context.Dead)
+		if (Listener != null && !context.Paused && !context.Blocked)
 		{
 			Listener.OnHover(context);
 
@@ -207,7 +207,7 @@ public class PlayerInteraction : PlayerDelegate
 
 		if (PausePanel)
 		{
-			PausePanel.SetActive(context.Paused && !context.Dead);
+			PausePanel.SetActive(context.Paused && !context.Blocked);
 		}
 
 		if (InteractText)

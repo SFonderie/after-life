@@ -137,6 +137,11 @@ public class PlayerContext : BehaviorContext
 	/// </summary>
 	public float DialogueTime { get; set; }
 
+	/// <summary>
+	/// Current player tape status. Increases or decreases.
+	/// </summary>
+	public int TapeState { get; set; }
+
 	public override void Update()
 	{
 		Damage -= Time.deltaTime * 2;

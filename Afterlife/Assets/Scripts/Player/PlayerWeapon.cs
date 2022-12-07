@@ -37,7 +37,7 @@ public class PlayerWeapon : PlayerDelegate
 	/// <summary>
 	/// Weapon draw animation value.
 	/// </summary>
-	private float Interpolate = 0;
+	private float Interpolate = 1;
 
 	/// <summary>
 	/// Current charge state.
@@ -86,7 +86,7 @@ public class PlayerWeapon : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
-		IgnoreInput = context.Interacting;
+		IgnoreInput = context.Interacting || context.Paused || context.Blocked;
 
 		// Draw the weapon if applicable.
 		if (context.DoWeaponPickup)
@@ -94,8 +94,12 @@ public class PlayerWeapon : PlayerDelegate
 			context.DoWeaponPickup = false;
 			context.Armed = true;
 			Interpolate = 0;
+		}
 
-			WeaponModel.SetActive(true);
+		WeaponModel.SetActive(context.Armed);
+
+		if (context.Armed && WeaponModel.transform.parent != WeaponGrip)
+		{
 			WeaponModel.transform.SetParent(WeaponGrip, false);
 		}
 
@@ -156,7 +160,7 @@ public class PlayerWeapon : PlayerDelegate
 
 		// Actually apply the velocity and damage to the projectile.
 		Projectile script = projectile.GetComponent<Projectile>();
-		script.OnSpawn(velocity, context.ProjectileDamage);
+		script.OnSpawn(velocity, context.ProjectileDamage, "Player");
 
 		DoAttack = false;
 		BlockAttack = true;

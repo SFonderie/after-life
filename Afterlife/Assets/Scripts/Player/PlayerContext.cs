@@ -68,6 +68,12 @@ public class PlayerContext : BehaviorContext
 	public float ProjectileDamage = 50f;
 
 	/// <summary>
+	/// Is the player currently armed?
+	/// </summary>
+	[Tooltip("Should the player start with their weapon out?")]
+	public bool Armed = true;
+
+	/// <summary>
 	/// Pointer to the player's inspection transform.
 	/// </summary>
 	public Transform PickupTransform { get; set; }
@@ -98,14 +104,24 @@ public class PlayerContext : BehaviorContext
 	public bool Inspecting { get; set; }
 
 	/// <summary>
-	/// Is the player currently armed?
+	/// Is the player paused right now?
 	/// </summary>
-	public bool Armed { get; set; }
+	public bool Paused { get; set; }
 
 	/// <summary>
 	/// Trigger the weapon pickup?
 	/// </summary>
 	public bool DoWeaponPickup { get; set; }
+
+	/// <summary>
+	/// Trigger the weapon pickup?
+	/// </summary>
+	public bool IsFadeOut { get; set; }
+
+	/// <summary>
+	/// Trigger the weapon pickup?
+	/// </summary>
+	public bool IsFadeLevelMax { get; set; }
 
 	/// <summary>
 	/// Current monologue text line.
@@ -127,9 +143,29 @@ public class PlayerContext : BehaviorContext
 	/// </summary>
 	public float DialogueTime { get; set; }
 
+	/// <summary>
+	/// Current player tape status. Increases or decreases.
+	/// </summary>
+	public int TapeState { get; set; }
+
+	/// <summary>
+	/// Is the player dead?
+	/// </summary>
+	public bool Dead { get; set; }
+
+	/// <summary>
+	/// Is the player winner?
+	/// </summary>
+	public bool Winner { get; set; }
+
+	/// <summary>
+	/// Disable the player?
+	/// </summary>
+	public bool Blocked => Dead || Winner;
+
 	public override void Update()
 	{
-		Damage -= Time.deltaTime * 2;
+		Damage -= Time.deltaTime * 3;
 		Damage = Mathf.Clamp(Damage, 0, Health);
 	}
 }

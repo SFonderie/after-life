@@ -6,10 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DanielNice.unity
-    guid: 4d4bfa393a09d27408d0f5dcdc660ccd
+    path: Assets/Scenes/Finals/MainMenu.unity
+    guid: ca11968f0800bfb419da7ed50fe78606
   - enabled: 1
-    path: Assets/Scenes/recording room (contain radio player).unity
-    guid: d0d74fef1efc1364a9e2a24b56347675
+    path: Assets/Scenes/Finals/1_Experiment.unity
+    guid: 4b9c59ad0a5af424e935a7737cf86426
+  - enabled: 1
+    path: Assets/Scenes/Finals/2_Break.unity
+    guid: 7be89362980430c4fa5c6c0cd38ea724
+  - enabled: 1
+    path: Assets/Scenes/Finals/3_Bunker.unity
+    guid: a58ab875eaa0a13478387ae66fcbda55
+  - enabled: 1
+    path: Assets/Scenes/Finals/4_Courtyard.unity
+    guid: 10207f833f41b2b4184a49aad535d9ff
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 491c30f197a684049b5ac429f6909af8, type: 2}

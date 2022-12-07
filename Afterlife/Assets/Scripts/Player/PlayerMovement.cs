@@ -88,7 +88,7 @@ public class PlayerMovement : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
-		_ignoreInput = context.Interacting;
+		_ignoreInput = context.Interacting || context.Paused || context.Blocked;
 
 		if (_controller)
 		{

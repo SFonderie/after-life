@@ -55,7 +55,11 @@ public class EnemyController : MonoBehaviour, ISceneListener
 			if (Enemy.EnemyObject)
 			{
 				Enemy.Control = Enemy.EnemyObject.GetComponent<DroneControl>();
-				Enemy.Control.IgnoreEnemy = true;
+
+				if (Enemy.Control)
+				{
+					Enemy.Control.IgnoreEnemy = true;
+				}
 
 				if (Enemy.SpawnTime <= 0)
 				{
@@ -100,8 +104,11 @@ public class EnemyController : MonoBehaviour, ISceneListener
 				// Figure out where in the spawn sequence this enemy object is...
 				float interpolate = (Enemy.Time - Enemy.SpawnDelay) / Enemy.SpawnTime;
 
-				// Only attack after the spawn delay is done.
-				Enemy.Control.IgnoreEnemy = interpolate < 1;
+				if (Enemy.Control)
+				{
+					// Only attack after the spawn delay is done.
+					Enemy.Control.IgnoreEnemy = interpolate < 1;
+				}
 
 				// Clamp the rest for animation purposes.
 				interpolate = Mathf.Clamp(interpolate, 0, 1);
@@ -113,7 +120,7 @@ public class EnemyController : MonoBehaviour, ISceneListener
 			else
 			{
 				// No enemy provided; skip.
-				if (!Enemy.EnemyObject || !Enemy.Control)
+				if (!Enemy.EnemyObject)
 				{
 					continue;
 				}

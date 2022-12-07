@@ -141,8 +141,15 @@ public class PlayerInteraction : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
-		if (((DoPause && !BlockPause) || DoUnpause) && PausePanel)
+		if (((DoPause && !BlockPause) || DoUnpause) && PausePanel && !context.Dead)
 		{
+			if (context.Interacting)
+			{
+				Listener.OnStopInteract(context);
+				context.Interacting = false;
+				context.Inspecting = false;
+			}
+
 			context.Paused = !context.Paused;
 
 			// WARNING! NUCLEAR CODE DETECTED.
@@ -162,13 +169,6 @@ public class PlayerInteraction : PlayerDelegate
 				DoPause = false;
 				BlockPause = false;
 			}
-
-			if (context.Interacting)
-			{
-				Listener.OnStopInteract(context);
-				context.Interacting = false;
-				context.Inspecting = false;
-			}
 		}
 
 		if (!PlayerLook || !PlayerInspect)
@@ -178,7 +178,7 @@ public class PlayerInteraction : PlayerDelegate
 
 		context.PickupTransform = PlayerInspect;
 
-		if (Listener != null && !context.Paused)
+		if (Listener != null && !context.Paused && !context.Dead)
 		{
 			Listener.OnHover(context);
 
@@ -207,7 +207,7 @@ public class PlayerInteraction : PlayerDelegate
 
 		if (PausePanel)
 		{
-			PausePanel.SetActive(context.Paused);
+			PausePanel.SetActive(context.Paused && !context.Dead);
 		}
 
 		if (InteractText)

@@ -212,7 +212,7 @@ public class DroneControl : EnemyDelegate
 
 			// Actually apply the velocity and damage to the projectile.
 			Projectile script = projectile.GetComponent<Projectile>();
-			script.OnSpawn(velocity, Damage);
+			script.OnSpawn(velocity, Damage, "Enemy");
 		}
 	}
 }

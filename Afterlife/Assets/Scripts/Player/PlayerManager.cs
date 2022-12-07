@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -19,6 +21,18 @@ public class PlayerManager : BehaviorManager<PlayerDelegate, PlayerContext>
 	[SerializeField, Tooltip("Player injury overlay image.")]
 	private Image InjuryImage = null;
 
+	/// <summary>
+	/// Paused game panel.
+	/// </summary>
+	[SerializeField, Tooltip("Death panel.")]
+	private GameObject DeathPanel = null;
+
+	/// <summary>
+	/// Main menu loading slider.
+	/// </summary>
+	[SerializeField, Tooltip("Death loading slider.")]
+	private Slider DeathLoad = null;
+
 	private const float MaxAlpha = 40f / 255f;
 	private float ActualAlpha = 0;
 	private float TargetAlpha = 0;
@@ -32,6 +46,9 @@ public class PlayerManager : BehaviorManager<PlayerDelegate, PlayerContext>
 		{
 			_input.onActionTriggered += HandleInput;
 		}
+
+		DeathPanel.SetActive(false);
+		DeathLoad.gameObject.SetActive(false);
 	}
 
 	public override void Update()
@@ -65,5 +82,43 @@ public class PlayerManager : BehaviorManager<PlayerDelegate, PlayerContext>
 	public override void OnDamage()
 	{
 		TargetAlpha = MaxAlpha * 3;
+	}
+
+	public override void OnDeath()
+	{
+		DeathPanel.SetActive(true);
+
+		Context.Dead = true;
+
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
+	}
+
+	public void OnReload()
+	{
+		DeathLoad.gameObject.SetActive(true);
+		Scene scene = SceneManager.GetActiveScene();
+		StartCoroutine(LoadScene(scene.name));
+	}
+
+	public void OnMainMenu()
+	{
+		DeathLoad.gameObject.SetActive(true);
+		StartCoroutine(LoadScene("MainMenu"));
+	}
+
+	IEnumerator LoadScene(string name)
+	{
+		AsyncOperation loader = SceneManager.LoadSceneAsync(name);
+
+		while (!loader.isDone)
+		{
+			if (DeathLoad)
+			{
+				DeathLoad.value = loader.progress;
+			}
+
+			yield return null;
+		}
 	}
 }

@@ -86,7 +86,7 @@ public class PlayerWeapon : PlayerDelegate
 
 	public override void UpdateDelegate(PlayerContext context)
 	{
-		IgnoreInput = context.Interacting || context.Paused;
+		IgnoreInput = context.Interacting || context.Paused || context.Dead;
 
 		// Draw the weapon if applicable.
 		if (context.DoWeaponPickup)
@@ -160,7 +160,7 @@ public class PlayerWeapon : PlayerDelegate
 
 		// Actually apply the velocity and damage to the projectile.
 		Projectile script = projectile.GetComponent<Projectile>();
-		script.OnSpawn(velocity, context.ProjectileDamage);
+		script.OnSpawn(velocity, context.ProjectileDamage, "Player");
 
 		DoAttack = false;
 		BlockAttack = true;

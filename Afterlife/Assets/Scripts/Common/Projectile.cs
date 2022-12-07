@@ -46,13 +46,17 @@ public class Projectile : MonoBehaviour
 	/// </summary>
 	private float Intensity = 0;
 
-	public void OnSpawn(Vector3 velocity, float damage)
+	private string OwnerTag = "";
+
+	public void OnSpawn(Vector3 velocity, float damage, string tag)
 	{
 		ProjectilePhysics.velocity = velocity;
 		Intensity = ProjectileGlow.intensity;
 		Damage = damage;
 		DeathTime = 10;
 		Lifetime = 0;
+
+		OwnerTag = tag;
 	}
 
 	void Update()
@@ -71,6 +75,12 @@ public class Projectile : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
+		// DO NOT SHOOT YOURSELF, IDIOT.
+		if (collision.gameObject.tag == OwnerTag)
+		{
+			return;
+		}
+
 		collision.gameObject.SendMessageUpwards("TakeDamage", Damage, SendMessageOptions.DontRequireReceiver);
 		DeathTime = Lifetime + ProjectileTrail.time;
 		ProjectilePhysics.velocity = Vector3.zero;

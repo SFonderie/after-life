@@ -108,6 +108,16 @@ public class PlayerContext : BehaviorContext
 	public bool DoWeaponPickup { get; set; }
 
 	/// <summary>
+	/// Trigger the weapon pickup?
+	/// </summary>
+	public bool IsFadeOut { get; set; }
+
+	/// <summary>
+	/// Trigger the weapon pickup?
+	/// </summary>
+	public bool IsFadeLevelMax { get; set; }
+
+	/// <summary>
 	/// Current monologue text line.
 	/// </summary>
 	public string Monologue { get; set; }
@@ -126,6 +136,11 @@ public class PlayerContext : BehaviorContext
 	/// Time at which the dialogue will expire.
 	/// </summary>
 	public float DialogueTime { get; set; }
+
+	/// <summary>
+	/// Current player tape status. Increases or decreases.
+	/// </summary>
+	public int TapeState { get; set; }
 
 	public override void Update()
 	{

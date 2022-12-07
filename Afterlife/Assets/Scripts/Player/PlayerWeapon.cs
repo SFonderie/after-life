@@ -37,7 +37,7 @@ public class PlayerWeapon : PlayerDelegate
 	/// <summary>
 	/// Weapon draw animation value.
 	/// </summary>
-	private float Interpolate = 0;
+	private float Interpolate = 1;
 
 	/// <summary>
 	/// Current charge state.
@@ -94,8 +94,12 @@ public class PlayerWeapon : PlayerDelegate
 			context.DoWeaponPickup = false;
 			context.Armed = true;
 			Interpolate = 0;
+		}
 
-			WeaponModel.SetActive(true);
+		WeaponModel.SetActive(context.Armed);
+
+		if (context.Armed && WeaponModel.transform.parent != WeaponGrip)
+		{
 			WeaponModel.transform.SetParent(WeaponGrip, false);
 		}
 

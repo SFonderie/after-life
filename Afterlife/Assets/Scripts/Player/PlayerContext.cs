@@ -68,6 +68,12 @@ public class PlayerContext : BehaviorContext
 	public float ProjectileDamage = 50f;
 
 	/// <summary>
+	/// Is the player currently armed?
+	/// </summary>
+	[Tooltip("Should the player start with their weapon out?")]
+	public bool Armed = true;
+
+	/// <summary>
 	/// Pointer to the player's inspection transform.
 	/// </summary>
 	public Transform PickupTransform { get; set; }
@@ -101,11 +107,6 @@ public class PlayerContext : BehaviorContext
 	/// Is the player paused right now?
 	/// </summary>
 	public bool Paused { get; set; }
-
-	/// <summary>
-	/// Is the player currently armed?
-	/// </summary>
-	public bool Armed { get; set; }
 
 	/// <summary>
 	/// Trigger the weapon pickup?
@@ -149,7 +150,7 @@ public class PlayerContext : BehaviorContext
 
 	public override void Update()
 	{
-		Damage -= Time.deltaTime * 2;
+		Damage -= Time.deltaTime * 3;
 		Damage = Mathf.Clamp(Damage, 0, Health);
 	}
 }

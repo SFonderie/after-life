@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour, IPlayerListener
 {
-    private string _actionName = "Teleport";
+    private string _actionName = "Squeeze Into Vent";
 
 	/// <summary>
 	/// This TP position to teleport.
